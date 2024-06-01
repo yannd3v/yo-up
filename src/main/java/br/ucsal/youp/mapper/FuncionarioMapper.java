@@ -9,5 +9,5 @@ import org.mapstruct.factory.Mappers;
 public abstract class FuncionarioMapper {
 
     public static final FuncionarioMapper INSTANCE = Mappers.getMapper(FuncionarioMapper.class);
-    public abstract Funcionario toFuncionario(FuncionarioDTO animeDTO);
+    public abstract Funcionario toFuncionario(FuncionarioDTO funcionarioDTO);
 }

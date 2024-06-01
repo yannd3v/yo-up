@@ -1,37 +1,32 @@
 package br.ucsal.youp.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Builder
-public class Funcionario {
+public class PlanoCarreira {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
-    private String nome;
-    @NotEmpty
-    private String email;
-    @NotEmpty
-    private String senha;
-    @NotEmpty
-    private String experiencia;
-    @NotEmpty
-    private String habilidades;
+    private String cargoAtual;
 
-    @OneToOne
-    private PlanoCarreira planoCarreira;
+    @NotEmpty
+    private String cargoFuturo;
 
-
-
+    @NotEmpty
+    private String objetivoCarreira;
 }
