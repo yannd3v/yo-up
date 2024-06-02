@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criar Plano de Carreira</title>
+<link rel="stylesheet" href="cadastrar.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Criar Plano de Carreira</h2>
+    <form id="registrationForm">
+        <div class="select-group">
+            <label for="cargoAtual">Cargo Atual:</label>
+            <select name="cargoAtual" id="cargoAtual">
+                <option value="select">Escolha</option>
+            </select>
+        </div>
+        <div class="select-group">
+            <label for="cargoFuturo">Cargo que deseja alcançar:</label>
+            <select name="cargoFuturo" id="cargoFuturo">
+                <option value="select">Escolha</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="experiencia">Descreva suas experiências:</label>
+            <textarea id="experiencia" name="experiencia" rows="4" cols="50"></textarea>
+        </div>
+        <div class="select-group">
+            <label for="habilidades">Selecione suas habilidades:</label>
+            <select name="habilidades" id="habilidades">
+                <option value="select">Escolha</option>
+            </select>
+        </div>
+        <button type="submit" class="btn">Criar meu plano de carreira</button>
+    </form>
+</div>
+
+<script src="cadastrar.js"></script>
+
+</body>
+</html>

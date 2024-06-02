@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #4384ad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-container {
+    width: 400px;
+    margin: auto;
+    background: #e4e4e4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Open Sans', sans-serif;
+  
+}
+h2 {
+    text-align: center;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.select-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.select-group label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #2d343a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+    font-weight: bold;
+}

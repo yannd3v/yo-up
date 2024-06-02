@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #4384ad;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+.select-group,
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.select-group label,
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"],
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Aplicando box-sizing e estilos para os selects */
+.select-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.select-group label {
+    display: inline-block;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #2d343a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+    font-weight: bold;
+}

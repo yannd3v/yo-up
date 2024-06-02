@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="login.css" media="screen" />
+<script src="login.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'" rel="stylesheet">
+<title>Login</title>
+
+
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Faça login no Yo'Up</h2>
+  <div class="form-group">
+    <label for="username">E-mail:</label>
+    <input type="text" id="username" name="username">
+  </div>
+  <div class="form-group">
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password">
+  </div>
+  <button onclick="login()" class="btn">Entrar</button>
+
+  <p class="new-user"> Não possui uma conta?
+    <a href="#" onclick="redirectToRegistration()">Criar</a>
+  </p>
+</div>
+
+</body>
+</html>
