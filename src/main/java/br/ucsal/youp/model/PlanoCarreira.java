@@ -21,12 +21,12 @@ public class PlanoCarreira {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
+
     private String cargoAtual;
 
-    @NotEmpty
+
     private String cargoFuturo;
 
-    @NotEmpty
+
     private String objetivoCarreira;
 }

@@ -18,15 +18,15 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
+
     private String nome;
-    @NotEmpty
+
     private String email;
-    @NotEmpty
+
     private String senha;
-    @NotEmpty
+
     private String experiencia;
-    @NotEmpty
+
     private String habilidades;
 
     @OneToOne

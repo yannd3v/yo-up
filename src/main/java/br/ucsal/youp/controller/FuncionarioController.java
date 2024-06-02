@@ -49,6 +49,12 @@ public class FuncionarioController {
         return new ResponseEntity<>(funcionarioService.save(funcionarioDTO), HttpStatus.CREATED);
     }
 
+//    @PutMapping ("/extend")
+//    public ResponseEntity<Void> saveExtendInfo(@RequestBody @Valid FuncionarioDTO funcionarioDTO) {
+//        funcionarioService.saveExtendInfo(funcionarioDTO);
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//    }
+
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
         funcionarioService.delete(id);
