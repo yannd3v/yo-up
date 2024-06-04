@@ -1,6 +1,6 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.AddPlanoCarreiraRequest;
+import br.ucsal.youp.dto.AddRequisitoRequest;
 import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.service.FuncionarioService;
@@ -50,6 +50,16 @@ public class FuncionarioController {
         return new ResponseEntity<>(funcionarioService.save(funcionarioDTO), HttpStatus.CREATED);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<Funcionario> login(@RequestBody FuncionarioDTO loginRequest) {
+        Funcionario funcionario = funcionarioService.findByEmailAndSenha(loginRequest.email(), loginRequest.senha());
+        if (funcionario != null) {
+            return ResponseEntity.ok(funcionario);
+        } else {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+    }
+
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
         funcionarioService.delete(id);
@@ -62,15 +72,15 @@ public class FuncionarioController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping(path = "addplano")
-    public ResponseEntity<Void> addPlanoCarreira(@RequestBody AddPlanoCarreiraRequest request){
-        funcionarioService.addPlanoCarreiraToFuncionario(request);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+//    @PutMapping(path = "addplano")
+//    public ResponseEntity<Void> addPlanoCarreira(@RequestBody AddPlanoCarreiraRequest request){
+//        funcionarioService.addPlanoCarreiraToFuncionario(request);
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//    }
 
-    @PutMapping(path = "/{id}")
-    public ResponseEntity<Void> addRequisitoToFuncionario(@PathVariable long id, @RequestBody String requisito){
-        funcionarioService.addRequisitosAoFuncionario(id, requisito);
+    @PutMapping(path = "/addrequisito")
+    public ResponseEntity<Void> addRequisitoToFuncionario(@RequestBody AddRequisitoRequest request){
+        funcionarioService.addRequisitosAoFuncionario(request);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

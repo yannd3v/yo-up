@@ -11,5 +11,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     
     console.log("Form Data:", formData);
     alert('Preparando seu Plano de Carreira personalizado...');
-    window.location.href = '/funcionario/home_page/dashboard.html';
+    window.location.href = '/funcionario/home_page/dashboardfuncionario.html';
 });

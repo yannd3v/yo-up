@@ -1,6 +1,6 @@
 function redirectToRegistration(){
 
-      window.location.href = 'funcionario/cadastrar/cadastrar.html';
+      window.location.href = 'cadastrarfuncionario.html';
  
 }
 

@@ -1,15 +1,11 @@
 package br.ucsal.youp.service;
 
-import br.ucsal.youp.dto.AddPlanoCarreiraRequest;
+import br.ucsal.youp.dto.AddRequisitoRequest;
 import br.ucsal.youp.dto.FuncionarioDTO;
-import br.ucsal.youp.dto.PlanoCarreiraDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
-import br.ucsal.youp.mapper.PlanoCarreiraMapper;
 import br.ucsal.youp.model.Funcionario;
-import br.ucsal.youp.model.PlanoCarreira;
 import br.ucsal.youp.repository.FuncionarioRepository;
-import br.ucsal.youp.repository.PlanoCarreiraRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,8 +19,6 @@ import java.util.List;
 public class FuncionarioService {
 
     private final FuncionarioRepository funcionarioRepository;
-    private final PlanoCarreiraRepository planoCarreiraRepository;
-    private final PlanoCarreiraService planoCarreiraService;
 
 
 
@@ -54,6 +48,9 @@ public class FuncionarioService {
         return funcionarioRepository.save(funcionario);
     }
 
+    public Funcionario findByEmailAndSenha(String email, String senha) {
+        return funcionarioRepository.findByEmailAndSenha(email, senha);
+    }
 
     @Transactional
     public void delete(long id) {
@@ -69,20 +66,9 @@ public class FuncionarioService {
     }
 
     @Transactional
-    public void addPlanoCarreiraToFuncionario(AddPlanoCarreiraRequest request){
+    public void addRequisitosAoFuncionario(AddRequisitoRequest request){
         Funcionario savedFuncionario = findByIdFuncionarioOrThrowBadRequestException(request.getIdFuncionario());
-        PlanoCarreira savedPlanoCarreira = planoCarreiraService.
-                findByIdPlanoCarreiraOrThrowBadRequestException(request.getIdPlanoCarreira());
-        savedPlanoCarreira.setFuncionario(savedFuncionario);
-        savedFuncionario.setPlanoCarreira(savedPlanoCarreira);
-        funcionarioRepository.save(savedFuncionario);
-        planoCarreiraRepository.save(savedPlanoCarreira);
-    }
-
-    @Transactional
-    public void addRequisitosAoFuncionario(long id, String requisito){
-        Funcionario savedFuncionario = findByIdFuncionarioOrThrowBadRequestException(id);
-        savedFuncionario.getRequisitos().add(requisito);
+        savedFuncionario.getRequisitos().add(request.getDescricao());
         funcionarioRepository.save(savedFuncionario);
     }
 

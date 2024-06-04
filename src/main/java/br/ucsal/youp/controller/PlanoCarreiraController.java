@@ -1,10 +1,8 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.FuncionarioDTO;
+
 import br.ucsal.youp.dto.PlanoCarreiraDTO;
-import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.model.PlanoCarreira;
-import br.ucsal.youp.service.FuncionarioService;
 import br.ucsal.youp.service.PlanoCarreiraService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

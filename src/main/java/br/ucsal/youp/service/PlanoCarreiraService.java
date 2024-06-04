@@ -7,6 +7,7 @@ import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.mapper.PlanoCarreiraMapper;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.model.PlanoCarreira;
+import br.ucsal.youp.repository.FuncionarioRepository;
 import br.ucsal.youp.repository.PlanoCarreiraRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,8 @@ import java.util.List;
 public class PlanoCarreiraService {
 
     private final PlanoCarreiraRepository planoCarreiraRepository;
+    private final FuncionarioRepository funcionarioRepository;
+    private final FuncionarioService funcionarioService;
 
 
     public Page<PlanoCarreira> listAll(Pageable pageable){
@@ -39,13 +42,21 @@ public class PlanoCarreiraService {
 
     @Transactional
     public PlanoCarreira save(PlanoCarreiraDTO planoCarreiraDTO){
+        Funcionario funcionario = funcionarioService.
+                findByIdFuncionarioOrThrowBadRequestException(planoCarreiraDTO.funcionario_id());
         PlanoCarreira planoCarreira = PlanoCarreiraMapper.INSTANCE.toPlanoCarreira(planoCarreiraDTO);
+        planoCarreira.setFuncionario(funcionario);
+//        funcionario.setPlanoCarreira(planoCarreira);
+//        funcionarioRepository.save(funcionario);
         return planoCarreiraRepository.save(planoCarreira);
     }
 
     @Transactional
     public void replace(PlanoCarreiraDTO planoCarreiraDTO) {
+        Funcionario funcionario = funcionarioService.
+                findByIdFuncionarioOrThrowBadRequestException(planoCarreiraDTO.funcionario_id());
         PlanoCarreira planoCarreira = PlanoCarreiraMapper.INSTANCE.toPlanoCarreira(planoCarreiraDTO);
+        planoCarreira.setFuncionario(funcionario);
         planoCarreiraRepository.save(planoCarreira);
 
     }

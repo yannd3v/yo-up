@@ -31,9 +31,6 @@ public class Funcionario {
 
     private String habilidades;
 
-    @OneToOne
-    private PlanoCarreira planoCarreira;
-
     @ElementCollection
     private List<String> requisitos;
 

@@ -10,4 +10,7 @@ import java.util.List;
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
 
     List<Funcionario> findByNome(String nome);
+    Funcionario findByEmailAndSenha(String email, String senha);
+
+
 }

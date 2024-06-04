@@ -62,5 +62,4 @@ public class GestorController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-
 }
