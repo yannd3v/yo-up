@@ -1,5 +1,6 @@
 package br.ucsal.youp.controller;
 
+import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.dto.GestorDTO;
 import br.ucsal.youp.model.Gestor;
 import br.ucsal.youp.service.GestorService;
@@ -60,4 +61,6 @@ public class GestorController {
         gestorService.replace(gestorDTO);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+
 }

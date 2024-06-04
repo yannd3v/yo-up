@@ -1,6 +1,8 @@
 package br.ucsal.youp.service;
 
+import br.ucsal.youp.dto.AddPlanoCarreiraRequest;
 import br.ucsal.youp.dto.FuncionarioDTO;
+import br.ucsal.youp.dto.PlanoCarreiraDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.mapper.PlanoCarreiraMapper;
@@ -21,8 +23,10 @@ import java.util.List;
 public class FuncionarioService {
 
     private final FuncionarioRepository funcionarioRepository;
-
     private final PlanoCarreiraRepository planoCarreiraRepository;
+    private final PlanoCarreiraService planoCarreiraService;
+
+
 
     public Page<Funcionario> listAll(Pageable pageable){
         return funcionarioRepository.findAll(pageable);
@@ -36,41 +40,50 @@ public class FuncionarioService {
         return funcionarioRepository.findByNome(nome);
     }
 
-    public Funcionario findByIdOrThrowBadRequestException(long id){
+    public Funcionario findByIdFuncionarioOrThrowBadRequestException(long id){
 
         return funcionarioRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Funcionário não encontrado"));
     }
 
+
+
     @Transactional
     public Funcionario save(FuncionarioDTO funcionarioDTO) {
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
-//        PlanoCarreira planoCarreira = PlanoCarreiraMapper.INSTANCE.toPlanoCarreira(funcionarioDTO.planoCarreiraDTO());
-//        if(planoCarreira != null){
-//            PlanoCarreira savedPlanoCarreira = planoCarreiraRepository.save(planoCarreira);
-//            funcionario.setPlanoCarreira(savedPlanoCarreira);
-//        } else {
-//            throw new IllegalArgumentException("Plano de carreira não pode ser nulo");
-//        }
-
         return funcionarioRepository.save(funcionario);
     }
 
 
     @Transactional
     public void delete(long id) {
-        funcionarioRepository.delete(findByIdOrThrowBadRequestException(id));
+        funcionarioRepository.delete(findByIdFuncionarioOrThrowBadRequestException(id));
     }
 
     @Transactional
     public void replace(FuncionarioDTO funcionarioDTO) {
-//        Funcionario savedFuncionario = findByIdOrThrowBadRequestException(funcionarioDTO.id());
+//       Funcionario savedFuncionario = findByIdOrThrowBadRequestException(funcionarioDTO.id());
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
-        PlanoCarreira planoCarreira = PlanoCarreiraMapper.INSTANCE.toPlanoCarreira(funcionarioDTO.planoCarreiraDTO());
-        PlanoCarreira savedPlanoCarreira = planoCarreiraRepository.save(planoCarreira);
-        funcionario.setPlanoCarreira(savedPlanoCarreira);
         funcionarioRepository.save(funcionario);
 
+    }
+
+    @Transactional
+    public void addPlanoCarreiraToFuncionario(AddPlanoCarreiraRequest request){
+        Funcionario savedFuncionario = findByIdFuncionarioOrThrowBadRequestException(request.getIdFuncionario());
+        PlanoCarreira savedPlanoCarreira = planoCarreiraService.
+                findByIdPlanoCarreiraOrThrowBadRequestException(request.getIdPlanoCarreira());
+        savedPlanoCarreira.setFuncionario(savedFuncionario);
+        savedFuncionario.setPlanoCarreira(savedPlanoCarreira);
+        funcionarioRepository.save(savedFuncionario);
+        planoCarreiraRepository.save(savedPlanoCarreira);
+    }
+
+    @Transactional
+    public void addRequisitosAoFuncionario(long id, String requisito){
+        Funcionario savedFuncionario = findByIdFuncionarioOrThrowBadRequestException(id);
+        savedFuncionario.getRequisitos().add(requisito);
+        funcionarioRepository.save(savedFuncionario);
     }
 
 }

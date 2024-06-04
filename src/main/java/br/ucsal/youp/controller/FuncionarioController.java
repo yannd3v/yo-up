@@ -1,5 +1,6 @@
 package br.ucsal.youp.controller;
 
+import br.ucsal.youp.dto.AddPlanoCarreiraRequest;
 import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.service.FuncionarioService;
@@ -35,7 +36,7 @@ public class FuncionarioController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Funcionario> findById(@PathVariable long id){
-        return ResponseEntity.ok(funcionarioService.findByIdOrThrowBadRequestException(id));
+        return ResponseEntity.ok(funcionarioService.findByIdFuncionarioOrThrowBadRequestException(id));
     }
 
     @GetMapping(path = "/find")
@@ -49,12 +50,6 @@ public class FuncionarioController {
         return new ResponseEntity<>(funcionarioService.save(funcionarioDTO), HttpStatus.CREATED);
     }
 
-//    @PutMapping ("/extend")
-//    public ResponseEntity<Void> saveExtendInfo(@RequestBody @Valid FuncionarioDTO funcionarioDTO) {
-//        funcionarioService.saveExtendInfo(funcionarioDTO);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
-
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
         funcionarioService.delete(id);
@@ -64,6 +59,18 @@ public class FuncionarioController {
     @PutMapping
     public ResponseEntity<Void> replace(@RequestBody FuncionarioDTO funcionarioDTO){
         funcionarioService.replace(funcionarioDTO);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping(path = "addplano")
+    public ResponseEntity<Void> addPlanoCarreira(@RequestBody AddPlanoCarreiraRequest request){
+        funcionarioService.addPlanoCarreiraToFuncionario(request);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Void> addRequisitoToFuncionario(@PathVariable long id, @RequestBody String requisito){
+        funcionarioService.addRequisitosAoFuncionario(id, requisito);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -1,9 +1,12 @@
 package br.ucsal.youp.service;
 
+import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.dto.GestorDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.GestorMapper;
+import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.model.Gestor;
+import br.ucsal.youp.repository.FuncionarioRepository;
 import br.ucsal.youp.repository.GestorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -54,4 +57,6 @@ public class GestorService {
         gestorRepository.save(gestor);
 
     }
+
+
 }
