@@ -9,6 +9,6 @@ public class IndexController {
 
     @GetMapping("/youp")
     public String index(){
-        return "home.html";
+        return "comum/home/home.html";
     }
 }

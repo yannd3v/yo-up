@@ -10,7 +10,7 @@
 
 <div class="container mt-5">
     <h1 class="mb-4">Editar Perfil do Funcionário</h1>
-    <form action="/{id}" method="PUT">
+    <form id="editForm">
         <input type="hidden" id="id">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
@@ -21,12 +21,16 @@
             <input type="email" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" required>
+        </div>
+        <div class="mb-3">
             <label for="experiencia" class="form-label">Experiência</label>
             <textarea class="form-control" id="experiencia" rows="3"></textarea>
         </div>
         <div class="mb-3">
             <label for="habilidades" class="form-label">Habilidades</label>
-            <input type="text" class="form-control" id="habilidades" required>
+            <input type="text" class="form-control" id="habilidades">
         </div>
         <button type="button" class="btn btn-primary" id="saveBtn">Salvar</button>
     </form>

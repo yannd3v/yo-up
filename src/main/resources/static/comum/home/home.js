@@ -6,7 +6,7 @@ function redirectToRegistration(){
 
 function redirectToLogin(){
       
-      window.location.href = '../login/login.html';
+      window.location.href = 'comum/login/login.html';
         
 }
   

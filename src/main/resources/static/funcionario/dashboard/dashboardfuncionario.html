@@ -31,84 +31,15 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="detalharfuncionario.html">Meu perfil</a>
+          <a class="nav-link" href="../../funcionario/detalhar/detalharfuncionario.html">Meu perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../funcionario/cadastrar_plano/cadastrarplano.html">Meu plano</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Total de Exames Realizados no Dia</h5>
-          <p class="card-text">3</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Funcionários Aptos</h5>
-          <p class="card-text">2</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Funcionários Inaptos</h5>
-          <p class="card-text">1</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col">
-      <div class="chart-container">
-        <canvas id="myPieChart" width="500" height="500"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  var ctx = document.getElementById('myPieChart').getContext('2d');
-  var myPieChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-          labels: ['Funcionários Aptos', 'Funcionários Inaptos'],
-          datasets: [{
-              label: 'Funcionários',
-              data: [2, 1],
-              backgroundColor: [
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 99, 132, 0.2)',
-              ],
-              borderColor: [
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 99, 132, 1)',
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          plugins: {
-              legend: {
-                  position: 'top',
-              },
-              title: {
-                  display: true,
-                  text: 'Distribuição de Funcionários Aptos e Inaptos'
-              }
-          }
-      }
-  });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

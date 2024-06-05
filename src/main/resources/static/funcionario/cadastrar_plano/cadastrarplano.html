@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Plano de Carreira</title>
+    <link rel="stylesheet" href="cadastrarplano.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Criar Plano de Carreira</h2>
+    <form id="registrationForm" action="http://localhost:8080/planocarreira" method="post">
+        <div class="select-group">
+            <label for="cargoAtual">Cargo Atual:</label>
+            <input type="text" id="cargoAtual" name="cargoAtual">
+        </div>
+        <div class="select-group">
+            <label for="cargoFuturo">Cargo que deseja alcançar:</label>
+            <input type="text" id="cargoFuturo" name="cargoFuturo">
+        </div>
+        <div class="input-group">
+            <label for="objetivoCarreira">Qual o seu objetivo de carreira?:</label>
+            <textarea id="objetivoCarreira" name="objetivoCarreira" rows="4" cols="50"></textarea>
+        </div>
+        <button type="submit" class="btn">Criar meu plano de carreira</button>
+    </form>
+</div>
+
+<script src="cadastrarplano.js"></script>
+
+</body>
+</html>
