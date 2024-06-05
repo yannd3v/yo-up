@@ -1,9 +1,8 @@
 package br.ucsal.youp.service;
 
-import br.ucsal.youp.dto.FuncionarioDTO;
+
 import br.ucsal.youp.dto.PlanoCarreiraDTO;
 import br.ucsal.youp.exception.BadRequestException;
-import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.mapper.PlanoCarreiraMapper;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.model.PlanoCarreira;

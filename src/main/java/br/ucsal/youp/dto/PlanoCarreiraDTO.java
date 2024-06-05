@@ -1,6 +1,5 @@
 package br.ucsal.youp.dto;
 
-import br.ucsal.youp.model.Funcionario;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 

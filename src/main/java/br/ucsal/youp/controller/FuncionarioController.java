@@ -72,12 +72,6 @@ public class FuncionarioController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-//    @PutMapping(path = "addplano")
-//    public ResponseEntity<Void> addPlanoCarreira(@RequestBody AddPlanoCarreiraRequest request){
-//        funcionarioService.addPlanoCarreiraToFuncionario(request);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
-
     @PutMapping(path = "/addrequisito")
     public ResponseEntity<Void> addRequisitoToFuncionario(@RequestBody AddRequisitoRequest request){
         funcionarioService.addRequisitosAoFuncionario(request);
