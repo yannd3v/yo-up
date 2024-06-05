@@ -21,7 +21,7 @@ async function login() {
             const funcionario = await response.json();
             console.log('Login bem-sucedido:', funcionario);
             alert('Login bem-sucedido!');
-            window.location.href = 'dashboardfuncionario.html';
+            window.location.href = '../../funcionario/dashboard/dashboardfuncionario.html';
         } else {
             alert('Email ou senha incorretos');
         }
@@ -34,7 +34,7 @@ async function login() {
 
 
   function redirectToRegistration(){
-    window.location.href = 'cadastrarfuncionario.html';
+    window.location.href = '../../funcionario/cadastrar/cadastrarfuncionario.html'
 }
     
 
