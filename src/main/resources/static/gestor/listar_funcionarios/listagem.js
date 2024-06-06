@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function fetchFuncionarios() {
-    fetch('http://localhost:8080/funcionarios')
+    fetch('http://localhost:8080/funcionarios/all')
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById('funcionarios-tbody');
@@ -11,9 +11,9 @@ function fetchFuncionarios() {
             data.forEach(funcionario => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
+                            <td>${funcionario.id}</td>  
                             <td>${funcionario.nome}</td>
-                            <td>${funcionario.cargo}</td>
-                            <td><a href="${funcionario.planoCarreiraUrl}" class="btn btn-primary btn-sm">Ver Plano</a></td>
+                            <td><a href="../plano_carreira/planocarreira.html?id=${funcionario.id}" class="btn btn-primary btn-sm">Ver Plano</a></td>
                         `;
                 tbody.appendChild(tr);
             });
