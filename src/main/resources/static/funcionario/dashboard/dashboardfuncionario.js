@@ -1,10 +1,7 @@
 
     // Data to populate the dashboard with
     const dashboardData = [
-        { title: "Consultas", count: 8, icon: "📅" },
-        { title: "Pacientes", count: 5, icon: "🆕" },
-        { title: "Exames Pendentes", count: 3, icon: "🔬" },
-        { title: "Atestados para Assinar", count: 4, icon: "🖋" }
+
     ];
 
     const dashboardContent = document.getElementById('dashboardContent');

@@ -24,6 +24,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     const cargoAtual = document.getElementById('cargoAtual').value;
     const cargoFuturo = document.getElementById('cargoFuturo').value;
     const objetivoCarreira = document.getElementById('objetivoCarreira').value;
+    const funcionario_id = sessionStorage.getItem('id_funcionario');
 
 
     const planoCarreiraDTO = {
@@ -49,6 +50,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
             console.log('Plano de carreira realizado com sucesso:', result);
             alert('Plano de carreira realizado com sucesso!');
             document.getElementById('registrationForm').reset();
+            window.location.href = '../../funcionario/dashboard/dashboardfuncionario.html';
         } else {
             const errorData = await response.json();
             console.error('Erro ao cadastrar:', errorData);

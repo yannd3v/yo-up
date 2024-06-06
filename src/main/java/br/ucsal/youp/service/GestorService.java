@@ -1,12 +1,18 @@
 package br.ucsal.youp.service;
 
 
+import br.ucsal.youp.dto.AddRequisitoRequest;
 import br.ucsal.youp.dto.GestorDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.GestorMapper;
+import br.ucsal.youp.model.FuncionarioRequisitos;
 import br.ucsal.youp.model.Gestor;
+import br.ucsal.youp.repository.FuncionarioRepository;
+import br.ucsal.youp.repository.FuncionarioRequisitosRepository;
 import br.ucsal.youp.repository.GestorRepository;
+import br.ucsal.youp.repository.PlanoCarreiraRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,8 +23,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class GestorService {
-
+    @Autowired
     private final GestorRepository gestorRepository;
+
+    @Autowired
+    private final FuncionarioRequisitosRepository funcionarioRequisitosRepository;
 
     public Page<Gestor> listAll(Pageable pageable){
         return gestorRepository.findAll(pageable);
@@ -56,5 +65,9 @@ public class GestorService {
 
     }
 
-
+    public List<String> addRequisito(FuncionarioRequisitos requisito) {
+        System.out.println(requisito);
+        funcionarioRequisitosRepository.save(requisito);
+        return funcionarioRequisitosRepository.findFuncionarioRequisitosByFuncionario_id(requisito.getFuncionario().getId());
+    }
 }
