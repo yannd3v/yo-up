@@ -1,21 +1,45 @@
-
-    // Data to populate the dashboard with
-    const dashboardData = [
-        { title: "Consultas", count: 8, icon: "📅" },
-        { title: "Pacientes", count: 5, icon: "🆕" },
-        { title: "Exames Pendentes", count: 3, icon: "🔬" },
-        { title: "Atestados para Assinar", count: 4, icon: "🖋" }
+document.addEventListener('DOMContentLoaded', function() {
+    const requisitos = [
+        { title: 'Requisito 1'},
+        { title: 'Requisito 2'},
+        { title: 'Requisito 3'},
+        { title: 'Requisito 4'}
     ];
 
-    const dashboardContent = document.getElementById('dashboardContent');
+    const descricaoRequisitos = [
+        {description: 'Descrição do requisito 1'},
+        {description: 'Descrição do requisito 2'},
+        {description: 'Descrição do requisito 3'},
+        {description: 'Descrição do requisito 4'}
+    ];
 
-    dashboardData.forEach(data => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E${encodeURIComponent(data.icon)}</text%3E%3C/svg%3E">
-            <h3>${data.title}</h3>
-            <p>${data.count}</p>
-        `;
-        dashboardContent.appendChild(card);
+    const timelineContent = document.getElementById('timelineContent');
+    const descricaoTimelineContent = document.getElementById('descricaoTimelineContent');
+
+    requisitos.forEach((requisito, index) => {
+        const newItem = document.createElement('div');
+        newItem.classList.add('timeline-item');
+        newItem.textContent = requisito.title;
+
+        if (index === 0) {
+            newItem.classList.add('first');
+        }
+
+        const descricaoItem = document.createElement('div');
+        descricaoItem.classList.add('timeline-item');
+        descricaoItem.textContent = descricaoRequisitos[index].description;
+
+        const content = document.createElement('div');
+        content.classList.add('timeline-item-content');
+        content.appendChild(newItem);
+        content.appendChild(descricaoItem);
+
+        if (index % 2 === 0) {
+            content.classList.add('left');
+        } else {
+            content.classList.add('right');
+        }
+
+        timelineContent.appendChild(content);
     });
+});

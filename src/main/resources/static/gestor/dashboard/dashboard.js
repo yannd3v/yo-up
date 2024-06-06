@@ -1,21 +1,41 @@
+function addRequisito() {
+    const reqInput = document.getElementById('reqInput');
+    const reqText = reqInput.value.trim();
+    if (reqText === '') return;
 
-    // Data to populate the dashboard with
-    const dashboardData = [
-        { title: "Consultas", count: 8, icon: "📅" },
-        { title: "Pacientes", count: 5, icon: "🆕" },
-        { title: "Exames Pendentes", count: 3, icon: "🔬" },
-        { title: "Atestados para Assinar", count: 4, icon: "🖋" }
-    ];
+    const timelineContent = document.getElementById('timelineContentRequisitos');
 
-    const dashboardContent = document.getElementById('dashboardContent');
+    const newItem = document.createElement('div');
+    newItem.classList.add('timeline-item');
+    newItem.textContent = reqText;
 
-    dashboardData.forEach(data => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E${encodeURIComponent(data.icon)}</text%3E%3C/svg%3E">
-            <h3>${data.title}</h3>
-            <p>${data.count}</p>
-        `;
-        dashboardContent.appendChild(card);
-    });
+    const items = timelineContent.getElementsByClassName('timeline-item');
+    if (items.length > 0) {
+        items[0].classList.remove('first');
+    }
+    newItem.classList.add('first');
+
+    timelineContent.insertBefore(newItem, timelineContent.firstChild);
+    reqInput.value = '';
+}
+
+function addDescricao() {
+    const descInput = document.getElementById('descInput');
+    const descText = descInput.value.trim();
+    if (descText === '') return;
+
+    const timelineContent = document.getElementById('timelineContentDescricao');
+
+    const newItem = document.createElement('div');
+    newItem.classList.add('timeline-item');
+    newItem.textContent = descText;
+
+    const items = timelineContent.getElementsByClassName('timeline-item');
+    if (items.length > 0) {
+        items[0].classList.remove('first');
+    }
+    newItem.classList.add('first');
+
+    timelineContent.insertBefore(newItem, timelineContent.firstChild);
+    descInput.value = '';
+}
