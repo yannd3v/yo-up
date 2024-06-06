@@ -20,6 +20,7 @@ async function login() {
         if (response.ok) {
             const funcionario = await response.json();
             console.log('Login bem-sucedido:', funcionario);
+            sessionStorage.setItem('id_funcionario', funcionario['id']);
             alert('Login bem-sucedido!');
             window.location.href = '../../funcionario/dashboard/dashboardfuncionario.html';
         } else {
