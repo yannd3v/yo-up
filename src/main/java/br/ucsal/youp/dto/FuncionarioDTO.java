@@ -8,6 +8,6 @@ import lombok.Builder;
 
 @Builder
 public record FuncionarioDTO(Long id, @NotEmpty String nome, @NotEmpty String email, @NotEmpty String senha,
-                             String experiencia,
-                             String habilidades) {
+                             @NotEmpty String experiencia,
+                             @NotEmpty String habilidades) {
 }

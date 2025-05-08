@@ -1,7 +1,6 @@
 package br.ucsal.youp.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlanoCarreira {
+public class TrilhaCarreira {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +22,7 @@ public class PlanoCarreira {
     private Funcionario funcionario;
 
     private String cargoAtual;
-
-
     private String cargoFuturo;
+    private boolean status;
 
-
-    private String objetivoCarreira;
 }

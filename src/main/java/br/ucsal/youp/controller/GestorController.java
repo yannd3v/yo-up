@@ -1,14 +1,12 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.AddRequisitoRequest;
-import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.dto.GestorDTO;
 import br.ucsal.youp.model.FuncionarioRequisitos;
 import br.ucsal.youp.model.Gestor;
-import br.ucsal.youp.model.PlanoCarreira;
+import br.ucsal.youp.model.TrilhaCarreira;
 import br.ucsal.youp.service.FuncionarioService;
 import br.ucsal.youp.service.GestorService;
-import br.ucsal.youp.service.PlanoCarreiraService;
+import br.ucsal.youp.service.TrilhaCarreiraService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -31,7 +29,7 @@ public class GestorController {
     private final GestorService gestorService;
 
     @Autowired
-    private final PlanoCarreiraService planoCarreiraService;
+    private final TrilhaCarreiraService trilhaCarreiraService;
 
     @Autowired
     private final FuncionarioService funcionarioService;
@@ -58,8 +56,8 @@ public class GestorController {
     }
 
     @GetMapping("/findPlanoCarreiraById/{id}")
-    public ResponseEntity<PlanoCarreira> findPlanoCarreiraById(@PathVariable long id){
-        return ResponseEntity.ok(planoCarreiraService.findByIdPlanoCarreiraOrThrowBadRequestException(id));
+    public ResponseEntity<TrilhaCarreira> findPlanoCarreiraById(@PathVariable long id){
+        return ResponseEntity.ok(trilhaCarreiraService.findByIdPlanoCarreiraOrThrowBadRequestException(id));
     }
 
     @PostMapping
