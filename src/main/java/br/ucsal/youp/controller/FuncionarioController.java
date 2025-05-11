@@ -1,6 +1,5 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.AddRequisitoRequest;
 import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.service.FuncionarioService;
@@ -72,9 +71,4 @@ public class FuncionarioController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping(path = "/addrequisito")
-    public ResponseEntity<Void> addRequisitoToFuncionario(@RequestBody AddRequisitoRequest request){
-        funcionarioService.addRequisitosAoFuncionario(request);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
 }

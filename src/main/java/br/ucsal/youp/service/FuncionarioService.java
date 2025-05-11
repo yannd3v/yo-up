@@ -1,6 +1,6 @@
 package br.ucsal.youp.service;
 
-import br.ucsal.youp.dto.AddRequisitoRequest;
+import br.ucsal.youp.dto.AddHabilidadeRequest;
 import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
@@ -66,10 +66,8 @@ public class FuncionarioService {
     }
 
     @Transactional
-    public void addRequisitosAoFuncionario(AddRequisitoRequest request){
+    public void addHabilidadeList(AddHabilidadeRequest request){
         Funcionario savedFuncionario = findByIdFuncionarioOrThrowBadRequestException(request.getIdFuncionario());
-        savedFuncionario.getRequisitos().add(request.getDescricao());
-        funcionarioRepository.save(savedFuncionario);
-    }
 
+    }
 }

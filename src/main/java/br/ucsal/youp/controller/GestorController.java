@@ -1,7 +1,6 @@
 package br.ucsal.youp.controller;
 
 import br.ucsal.youp.dto.GestorDTO;
-import br.ucsal.youp.model.FuncionarioRequisitos;
 import br.ucsal.youp.model.Gestor;
 import br.ucsal.youp.model.TrilhaCarreira;
 import br.ucsal.youp.service.FuncionarioService;

@@ -21,8 +21,11 @@ public class TrilhaCarreira {
     @JoinColumn(name = "funcionario_id")
     private Funcionario funcionario;
 
-    private String cargoAtual;
-    private String cargoFuturo;
+    @OneToOne
+    @JoinColumn(name = "cargo_id")
+    private Cargo cargo;
+
+    private String nome;
     private boolean status;
 
 }

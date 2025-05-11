@@ -28,10 +28,10 @@ public class Funcionario {
 
     private String experiencia;
 
-    private String habilidades;
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<Habilidade> habilidades;
 
-    @ElementCollection
-    private List<String> requisitos;
+
 
 
 }
